@@ -16,8 +16,8 @@
         }
 
         header {
-            background-color: #333;
-            color: #fff;
+            background-color: #ADD8E6; /* Light Blue */
+            color: #2b2525;
             padding: 20px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -31,10 +31,15 @@
 
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: 600;
             display: inline-block;
             margin-right: 60px;
+            transition: transform 0.3s;
+        }
+
+        header h1:hover {
+            transform: scale(1.1);
         }
 
         .social-links-header {
@@ -49,8 +54,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             background: #333;
             color: #fff;
@@ -116,24 +121,31 @@
 
         .buttons {
             margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .buttons a {
             text-decoration: none;
             color: #fff;
-            background-color: #333;
-            padding: 15px 25px;
-            border-radius: 5px;
-            margin: 10px;
-            display: inline-block;
+            background-color: #0077b5;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-size: 1.1em;
             transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            letter-spacing: 1px;
         }
 
         .buttons a:hover {
-            background-color: #555;
+            background-color: #005f8b;
             transform: translateY(-3px);
+        }
+
+        .buttons a:active {
+            transform: translateY(1px);
         }
 
         .section {
@@ -236,10 +248,10 @@
         <p>
             Hello! I'm a Machine Learning and Data Science Enthusiast
             Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
+        </p>
         <div class="buttons">
-            <a href="skills.html">Skills</a>
+            <a href="First.html">Skills</a>
             <a href="project.html">Projects</a>
-            <!-- <a href="contact.html">Contact</a> -->
             <!-- Resume button -->
             <a href="resume.html">Resume</a>
             <a href="certificate.html">Certification</a>
@@ -248,3 +260,5 @@
 
 </body>
 </html>
+
+
