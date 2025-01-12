@@ -27,9 +27,9 @@
             top: 0;
             z-index: 1000;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
 
         header h1 {
@@ -40,10 +40,10 @@
 
         /* Social Media Links */
         .social-links-header {
-            position: absolute;
-            right: 20px;
+            margin-top: 15px;
             display: flex;
-            align-items: center;
+            gap: 10px;
+            justify-content: center;
         }
 
         .social-links-header a {
@@ -56,7 +56,6 @@
             border-radius: 50%;
             background: #333;
             color: #fff;
-            margin-left: 10px;
             transition: background 0.3s, transform 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
@@ -223,8 +222,7 @@
             }
 
             .social-links-header {
-                right: 10px;
-                bottom: 10px;
+                margin-top: 15px;
             }
 
             .social-links-header a {
@@ -274,9 +272,9 @@
         </p>
         <div class="buttons">
             <a href="First.html">Skills</a>
-            <a href="Projects.html">Projects</a>
+            <a href="project.html">Projects</a>
             <a href="resume.html">Resume</a>
-            <a href="Certificats.html">Certifications</a>
+            <a href="certificate.html">Certifications</a>
         </div>
     </section>
 </body>
