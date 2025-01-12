@@ -1,318 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate Showcase</title>
     <style>
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
             color: #333;
-            padding: 20px;
-            line-height: 1.6;
         }
 
-        header {
+        /* Dark Header */
+        .header {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-        }
-
-        p {
-            color: #7f8c8d;
-        }
-
-        .certificate-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .certificate-card {
-            position: relative;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
+            font-size: 2.5em;
+            font-weight: bold;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            cursor: pointer;
         }
 
-        .certificate-card:hover {
-            transform: scale(1.05);
-        }
-
-        .certificate-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .certificate-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .certificate-info h3 {
-            font-size: 1.5rem;
-            color: #34495e;
-        }
-
-        .certificate-info p {
-            color: #95a5a6;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #95a5a6;
-            font-size: 0.9rem;
-        }
-
-        /* Add Icon Button */
-        .add-icon {
-            position: fixed;
-            bottom: 20px;
+        /* Social Links (Positioned at top right) */
+        .social-links-header {
+            position: absolute;
+            top: 20px;
             right: 20px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 2rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            gap: 10px;
         }
 
-        .add-icon:hover {
-            background-color: #34495e;
+        .social-links-header a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
         }
 
-        /* Modal Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
+        .social-links-header img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            object-fit: contain;
         }
 
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
+        /* Certificate Container */
+        .certificate-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Certificate Card Styles */
+        .certificate-card {
+            background: linear-gradient(135deg, #ffffff, #e3f2fd);
+            border: 1px solid #b3e5fc;
+            border-radius: 15px;
+            padding: 30px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
+        .certificate-card h3 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #00796b;
             font-weight: bold;
         }
 
-        .close:hover,
-        .close:focus {
-            color: #000;
-            cursor: pointer;
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
-        .form-container label {
-            font-size: 1.1rem;
-            color: #34495e;
-        }
-
-        .form-container input, .form-container button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-container button {
-            background-color: #2c3e50;
-            color: white;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background-color: #34495e;
-        }
-
-        /* Context Menu */
-        .context-menu {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .context-menu button {
-            display: block;
-            background-color: transparent;
-            border: none;
-            color: #34495e;
-            font-size: 1rem;
-            padding: 5px 10px;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .context-menu button:hover {
-            background-color: #ecf0f1;
-        }
     </style>
 </head>
+
 <body>
+
+    <!-- Dark Header -->
+    <div class="header">
+        Certificate Showcase
+    </div>
+
     <header>
-        <h1>My Certificates</h1>
-        <p>Explore the certifications I’ve achieved</p>
+        <div class="social-links-header">
+            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin">
+                <img src="download.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github">
+                <!-- Make sure the path to GitHub logo is correct -->
+                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub"> <!-- Adjust path if needed -->
+            </a>
+        </div>
     </header>
 
-    <section class="certificate-gallery" id="certificate-gallery">
-        <!-- Certificates will be dynamically added here -->
-    </section>
-
-    <footer>
-        <p>© 2024 Unnatidhar Sharma. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Add Icon Button -->
-    <button class="add-icon" id="add-icon">+</button>
-
-    <!-- Modal for Adding and Editing Certificates -->
-    <div id="addModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="form-container">
-                <h2 id="modal-title">Add a New Certificate</h2>
-                <label for="cert-name">Certificate Name</label>
-                <input type="text" id="cert-name" placeholder="Enter certificate name" required>
-
-                <label for="cert-institution">Institution</label>
-                <input type="text" id="cert-institution" placeholder="Enter institution name" required>
-
-                <label for="cert-date">Date</label>
-                <input type="date" id="cert-date" required>
-
-                <label for="cert-image">Certificate Image</label>
-                <input type="file" id="cert-image" accept="image/*">
-
-                <button id="add-cert-btn">Add Certificate</button>
-            </div>
+    <!-- Certificate Display -->
+    <div id="certificate-container" class="certificate-container">
+        <!-- Predefined certificate cards -->
+        <div class="certificate-card" onclick="openCertificate('Unnatidhar Sharma_certificate-2.pdf')">
+            <h3>Machine Learning Certificate</h3>
+        </div>
+        <div class="certificate-card" onclick="openCertificate('UNNATIDHAR SHARMAcertificate (2).pdf')">
+            <h3>Microsoft AI Certificate</h3>
+        </div>
+        <div class="certificate-card" onclick="openCertificate('Unnatidhar_Oct_2023_internship_41839 (1).pdf')">
+            <h3>Artificial Intelligence Languify Certificate</h3>
+        </div>
+        <div class="certificate-card" onclick="openCertificate('DeepLearning.pdf')">
+            <h3>Deep Learning Certificate</h3>
         </div>
     </div>
 
     <script>
-        const modal = document.getElementById("addModal");
-        const addIcon = document.getElementById("add-icon");
-        const closeModal = document.getElementsByClassName("close")[0];
-        const gallery = document.getElementById("certificate-gallery");
-        let certificates = JSON.parse(localStorage.getItem('certificates')) || [];
-
-        // Display modal
-        addIcon.onclick = function() {
-            document.getElementById("modal-title").textContent = "Add a New Certificate";
-            document.getElementById('add-cert-btn').textContent = "Add Certificate";
-            clearForm();
-            modal.style.display = "block";
+        function openCertificate(filePath) {
+            // Open the certificate in a new tab
+            window.open(filePath, '_blank');
         }
-
-        // Close modal
-        closeModal.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Add certificate
-        document.getElementById('add-cert-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            const certName = document.getElementById('cert-name').value;
-            const certInstitution = document.getElementById('cert-institution').value;
-            const certDate = document.getElementById('cert-date').value;
-            const certImage = document.getElementById('cert-image').files[0];
-
-            if (certName && certInstitution && certDate && certImage) {
-                const reader = new FileReader();
-
-                reader.onload = function(event) {
-                    const newCertificate = {
-                        name: certName,
-                        institution: certInstitution,
-                        date: certDate,
-                        image: event.target.result
-                    };
-                    
-                    certificates.push(newCertificate);
-                    localStorage.setItem('certificates', JSON.stringify(certificates));
-                    displayCertificates();
-                    modal.style.display = "none";
-                };
-
-                reader.readAsDataURL(certImage);
-            } else {
-                alert('Please fill in all fields and add an image.');
-            }
-        });
-
-        // Display certificates
-        function displayCertificates() {
-            gallery.innerHTML = ''; // Clear current gallery content
-            certificates.forEach((certificate, index) => {
-                const certCard = document.createElement('div');
-                certCard.classList.add('certificate-card');
-
-                const certImg = document.createElement('img');
-                certImg.src = certificate.image;
-                certCard.appendChild(certImg);
-
-                const certInfo = document.createElement('div');
-                certInfo.classList.add('certificate-info');
-                certInfo.innerHTML = `<h3>${certificate.name}</h3><p>${certificate.institution}<br>${certificate.date}</p>`;
-                certCard.appendChild(certInfo);
-
-                gallery.appendChild(certCard);
-            });
-        }
-
-        function clearForm() {
-            document.getElementById('cert-name').value = '';
-            document.getElementById('cert-institution').value = '';
-            document.getElementById('cert-date').value = '';
-            document.getElementById('cert-image').value = '';
-        }
-
-        // Initial display of certificates
-        displayCertificates();
     </script>
+
 </body>
+
 </html>
+
+
