@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        /* General Body Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -17,34 +15,33 @@
             position: relative;
         }
 
-        /* Header */
         header {
-            background-color: #2c3e50;
+            background-color: #333;
             color: #fff;
-            padding: 10px 20px;
+            padding: 20px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
             font-size: 2em;
             font-weight: 600;
+            display: inline-block;
+            margin-right: 60px;
         }
 
-        /* Social Media Links - Positioned Top-Right */
         .social-links-header {
             position: absolute;
-            right: 10px;
-            top: 10px;
+            right: 20px;
             display: flex;
-            gap: 8px;
-            justify-content: center;
+            align-items: center;
         }
 
         .social-links-header a {
@@ -57,12 +54,13 @@
             border-radius: 50%;
             background: #333;
             color: #fff;
+            margin-left: 10px;
             transition: background 0.3s, transform 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .social-links-header a:hover {
-            background: #3498db;
+            background: #555;
             transform: scale(1.1);
         }
 
@@ -75,11 +73,10 @@
         }
 
         .social-links-header img {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
         }
 
-        /* Intro Section */
         .intro {
             display: flex;
             flex-direction: column;
@@ -90,8 +87,8 @@
 
         .intro img {
             border-radius: 50%;
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -108,22 +105,17 @@
         }
 
         .intro p {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            font-size: 1.2em;
-            line-height: 1.8;
+            font-size: 1.1em;
+            line-height: 1.6;
             color: #666;
             opacity: 0;
             animation: fadeInUp 2s ease-out 1s forwards;
         }
 
-        /* Buttons */
         .buttons {
             margin: 30px 0;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .buttons a {
@@ -132,6 +124,7 @@
             background-color: #333;
             padding: 15px 25px;
             border-radius: 5px;
+            margin: 10px;
             display: inline-block;
             font-size: 1.1em;
             transition: background-color 0.3s, transform 0.3s;
@@ -143,7 +136,6 @@
             transform: translateY(-3px);
         }
 
-        /* Section */
         .section {
             padding: 40px 20px;
             animation: fadeIn 2s ease-out;
@@ -167,12 +159,10 @@
             animation: fadeInUp 2s ease-out 1s forwards;
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
@@ -183,7 +173,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -195,32 +184,20 @@
                 transform: scale(0.9);
                 opacity: 0;
             }
-
             to {
                 transform: scale(1);
                 opacity: 1;
             }
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header {
-                padding: 8px 20px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            header h1 {
-                font-size: 1.8em;
-            }
-
+        @media (max-width: 600px) {
             .intro img {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
             }
 
             .intro h1 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
 
             .buttons a {
@@ -229,8 +206,8 @@
             }
 
             .social-links-header {
-                top: 10px;
                 right: 10px;
+                bottom: 10px;
             }
 
             .social-links-header a {
@@ -238,38 +215,17 @@
                 height: 30px;
             }
         }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.6em;
-            }
-
-            .intro img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .intro h1 {
-                font-size: 1.8em;
-            }
-
-            .buttons a {
-                padding: 8px 15px;
-                font-size: 0.9em;
-            }
-        }
     </style>
 </head>
-
 <body>
     <header>
         <h1>Welcome to My Portfolio</h1>
         <div class="social-links-header">
-            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" class="linkedin">
+            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin">
                 <img src="download.png" alt="LinkedIn">
             </a>
-            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" class="github">
-                <img src="github-icon.png" alt="GitHub">
+            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github">
+                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub">
             </a>
         </div>
     </header>
@@ -278,18 +234,17 @@
         <img src="f5926685-e40c-4efb-a2f4-5671672f22ea (1).jpg" alt="Your Photo">
         <h1>Unnatidhar Sharma</h1>
         <p>
-            Hello! I'm a Machine Learning and Data Science Enthusiast, passionate about solving real-world challenges
-            with innovative solutions. Experienced in developing and deploying machine learning models, and building
-            impactful applications.
-        </p>
+            Hello! I'm a Machine Learning and Data Science Enthusiast
+            Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
         <div class="buttons">
             <a href="skills.html">Skills</a>
-            <a href="projects.html">Projects</a>
+            <a href="project.html">Projects</a>
+            <!-- <a href="contact.html">Contact</a> -->
+            <!-- Resume button -->
             <a href="resume.html">Resume</a>
-            <a href="certificate.html">Certifications</a>
+            <a href="certificate.html">Certification</a>
         </div>
     </section>
+
 </body>
-
 </html>
-
