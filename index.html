@@ -16,8 +16,11 @@
         }
 
         header {
-            background-color: #ADD8E6; /* Light Blue */
-            color: #2b2525;
+            background-color: #7cd2ef; /* Light Blue */
+            color: #0f0e0e;
+            /* margin: 10px 0; */
+            /* font-size: 2.5em; */
+            /* font-weight: 700; */
             padding: 20px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -32,14 +35,10 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            font-weight: 600;
+            font-weight: 700;
+            color: #3b3a57;
             display: inline-block;
-            margin-right: 60px;
-            transition: transform 0.3s;
-        }
-
-        header h1:hover {
-            transform: scale(1.1);
+            margin-right: 10px 0;
         }
 
         .social-links-header {
@@ -54,8 +53,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: #333;
             color: #fff;
@@ -70,7 +69,7 @@
         }
 
         .social-links-header .linkedin {
-            background: #0077b5;
+            background: #97b1c0;
         }
 
         .social-links-header .github {
@@ -104,7 +103,7 @@
             margin: 10px 0;
             font-size: 2.5em;
             font-weight: 700;
-            color: #333;
+            color: #3b3a57;
             opacity: 0;
             animation: fadeInUp 2s ease-out 0.5s forwards;
         }
@@ -114,38 +113,31 @@
             margin: 0 auto;
             font-size: 1.1em;
             line-height: 1.6;
-            color: #666;
+            color: #0f0e0e;
             opacity: 0;
             animation: fadeInUp 2s ease-out 1s forwards;
         }
 
         .buttons {
             margin: 30px 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
         }
 
         .buttons a {
             text-decoration: none;
             color: #fff;
-            background-color: #0077b5;
-            padding: 12px 25px;
-            border-radius: 30px;
+            background-color: #3b3a57;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
             font-size: 1.1em;
             transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(180, 148, 148, 0.2);
         }
 
         .buttons a:hover {
-            background-color: #005f8b;
+            background-color: #555;
             transform: translateY(-3px);
-        }
-
-        .buttons a:active {
-            transform: translateY(1px);
         }
 
         .section {
@@ -203,6 +195,21 @@
         }
 
         @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+                margin-right: 0;
+            }
+
+            .social-links-header {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .social-links-header a {
+                width: 25px;
+                height: 25px;
+            }
+
             .intro img {
                 width: 120px;
                 height: 120px;
@@ -215,16 +222,6 @@
             .buttons a {
                 padding: 10px 20px;
                 font-size: 1em;
-            }
-
-            .social-links-header {
-                right: 10px;
-                bottom: 10px;
-            }
-
-            .social-links-header a {
-                width: 30px;
-                height: 30px;
             }
         }
     </style>
@@ -250,7 +247,7 @@
             Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
         </p>
         <div class="buttons">
-            <a href="First.html">Skills</a>
+            <a href="skills.html">Skills</a>
             <a href="project.html">Projects</a>
             <!-- Resume button -->
             <a href="resume.html">Resume</a>
