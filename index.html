@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        /* General Body Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -15,10 +17,11 @@
             position: relative;
         }
 
+        /* Header */
         header {
-            background-color: #333;
+            background-color: #2c3e50;
             color: #fff;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -31,12 +34,11 @@
 
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: 600;
-            display: inline-block;
-            margin-right: 60px;
         }
 
+        /* Social Media Links */
         .social-links-header {
             position: absolute;
             right: 20px;
@@ -49,8 +51,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: #333;
             color: #fff;
@@ -60,7 +62,7 @@
         }
 
         .social-links-header a:hover {
-            background: #555;
+            background: #3498db;
             transform: scale(1.1);
         }
 
@@ -73,10 +75,11 @@
         }
 
         .social-links-header img {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
         }
 
+        /* Intro Section */
         .intro {
             display: flex;
             flex-direction: column;
@@ -87,8 +90,8 @@
 
         .intro img {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -105,17 +108,22 @@
         }
 
         .intro p {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 1.2em;
+            line-height: 1.8;
             color: #666;
             opacity: 0;
             animation: fadeInUp 2s ease-out 1s forwards;
         }
 
+        /* Buttons */
         .buttons {
             margin: 30px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .buttons a {
@@ -124,7 +132,6 @@
             background-color: #333;
             padding: 15px 25px;
             border-radius: 5px;
-            margin: 10px;
             display: inline-block;
             font-size: 1.1em;
             transition: background-color 0.3s, transform 0.3s;
@@ -136,6 +143,7 @@
             transform: translateY(-3px);
         }
 
+        /* Section */
         .section {
             padding: 40px 20px;
             animation: fadeIn 2s ease-out;
@@ -159,10 +167,12 @@
             animation: fadeInUp 2s ease-out 1s forwards;
         }
 
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -173,6 +183,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -184,20 +195,26 @@
                 transform: scale(0.9);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;
             }
         }
 
-        @media (max-width: 600px) {
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
             .intro img {
-                width: 120px;
-                height: 120px;
+                width: 150px;
+                height: 150px;
             }
 
             .intro h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .buttons a {
@@ -211,20 +228,37 @@
             }
 
             .social-links-header a {
-                width: 30px;
-                height: 30px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .intro h1 {
+                font-size: 1.8em;
+            }
+
+            .buttons a {
+                padding: 8px 15px;
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome to My Portfolio</h1>
         <div class="social-links-header">
-            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin">
+            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" class="linkedin">
                 <img src="download.png" alt="LinkedIn">
             </a>
-            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github">
+            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" class="github">
                 <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub">
             </a>
         </div>
@@ -234,18 +268,17 @@
         <img src="f5926685-e40c-4efb-a2f4-5671672f22ea (1).jpg" alt="Your Photo">
         <h1>Unnatidhar Sharma</h1>
         <p>
-            Hello! I'm a Machine Learning and Data Science Enthusiast
-            Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
+            Hello! I'm a Machine Learning and Data Science Enthusiast, passionate about solving real-world challenges
+            with innovative solutions. Experienced in developing and deploying machine learning models, and building
+            impactful applications.
+        </p>
         <div class="buttons">
             <a href="First.html">Skills</a>
-            <a href="project.html">Projects</a>
-            <!-- <a href="contact.html">Contact</a> -->
-            <!-- Resume button -->
+            <a href="Projects.html">Projects</a>
             <a href="resume.html">Resume</a>
-            <a href="certificate.html">Certification</a>
+            <a href="Certificats.html">Certifications</a>
         </div>
     </section>
-
 </body>
-</html>
 
+</html>
