@@ -25,6 +25,24 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Header Social Icons - Positioned to the Right */
+        .social-links-header {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-header a {
+            text-decoration: none;
+        }
+
+        .social-links-header img {
+            width: 30px;
+            height: 30px;
+        }
+
         /* Skills Container */
         .skills-container {
             display: grid;
@@ -74,7 +92,6 @@
                 font-size: 1.2em;
             }
         }
-
     </style>
 </head>
 <body>
@@ -83,6 +100,18 @@
     <div class="header">
         My Skills
     </div>
+
+    <header>
+        <!-- Social Links - LinkedIn and GitHub Icons -->
+        <div class="social-links-header">
+            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin">
+                <img src="download.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github">
+                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub">
+            </a>
+        </div>
+    </header>
 
     <!-- Skills Display -->
     <div id="skills-container" class="skills-container"></div>
@@ -107,5 +136,4 @@
     </script>
 </body>
 </html>
-
 
