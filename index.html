@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Portfolio</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,248 +13,345 @@
             background-color: #f4f4f4;
             text-align: center;
             overflow-x: hidden;
-            position: relative;
         }
 
         header {
-            background-color: #282c34; /* Light Blue */
+            background-color: #0b2b36;
             color: white;
             padding: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            position: relative;
+            padding: 10px 20px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2em;
-            font-weight: 600;
-            text-align: left;
-            color: #f7f7fb;
-            display: inline-block;
-            margin-right: 10px 0;
+            font-size: 1.8em;
         }
 
-        .social-links-header {
-            position: absolute;
-            right: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .social-links-header a {
+        header .buttons a {
             text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            font-size: 1.1em;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .projects-container,
+        .certificate-container {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #333;
-            color: #fff;
-            margin-left: 10px;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .social-links-header a:hover {
-            background: #555;
-            transform: scale(1.1);
-        }
+        .project-card,
+.certificate-card {
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 30px; /* Adjusted padding to make it look better */
+    width: 280px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added background-color transition */
+    cursor: pointer;
+}
 
-        .social-links-header .linkedin {
-            background: #97b1c0;
-        }
+.project-card:hover,
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f0f8ff; /* Light blue color on hover */
+}
 
-        .social-links-header .github {
-            background: #333;
-        }
+/* Optional: You can also change the color of the text on hover */
+.project-card h3,
+.certificate-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    transition: color 0.3s; /* Smooth color transition */
+}
 
-        .social-links-header img {
-            width: 20px;
-            height: 20px;
-        }
+.project-card:hover h3,
+.certificate-card:hover h3 {
+    color: #007bff; /* Change text color to blue on hover */
+}
 
-        .intro {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            animation: fadeIn 2s ease-out;
-        }
 
-        .intro img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: zoomIn 2s ease-out;
-        }
-
-        .intro h1 {
-            margin: 10px 0;
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #3b3a57;
-            opacity: 0;
-            animation: fadeInUp 2s ease-out 0.5s forwards;
-        }
-
-        .intro p {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #0f0e0e;
-            opacity: 0;
-            animation: fadeInUp 2s ease-out 1s forwards;
-        }
-
-        .buttons {
-            margin: 30px 0;
-        }
-
-        .buttons a {
+        .download-button {
             text-decoration: none;
-            color: #fff;
-            background-color: #3b3a57;
-            padding: 15px 25px;
+            color: white;
+            background-color: #0b2b36;
+            padding: 12px 20px;
             border-radius: 5px;
-            margin: 10px;
+            font-size: 1.1em;
             display: inline-block;
-            font-size: 1.1em;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 2px 4px rgba(180, 148, 148, 0.2);
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
 
-        .buttons a:hover {
-            background-color: #555;
-            transform: translateY(-3px);
-        }
-
-        .section {
-            padding: 40px 20px;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-            font-size: 2em;
-            color: #333;
-            opacity: 0;
-            animation: fadeInUp 2s ease-out 0.5s forwards;
-        }
-
-        .section p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #666;
-            opacity: 0;
-            animation: fadeInUp 2s ease-out 1s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.5em;
-                margin-right: 0;
-            }
-
-            .social-links-header {
-                right: 10px;
-                bottom: 10px;
-            }
-
-            .social-links-header a {
-                width: 25px;
-                height: 25px;
-            }
-
-            .intro img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .intro h1 {
-                font-size: 2em;
-            }
-
-            .buttons a {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
+        .download-button:hover {
+            background-color: #333;
         }
     </style>
+    <script>
+        function showProjectDetails(title, description) {
+            alert(`${title}\n\n${description}`);
+        }
+
+        function openCertificate(file) {
+            window.open(file, '_blank');
+        }
+    </script>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <div class="social-links-header">
-            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin">
-                <img src="download.png" alt="LinkedIn">
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000;">
+        <!-- Portfolio Title -->
+        <h1 style="font-size: 2.5em; font-weight: 700; margin: 0; letter-spacing: 2px; color: #f9f9f9; text-transform: uppercase; transition: color 0.3s;">
+            Welcome to My Portfolio
+        </h1>
+        
+        <!-- Social Links -->
+        <div class="social-links-header" style="display: flex; gap: 20px; align-items: center;">
+            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin" style="transition: transform 0.3s, background-color 0.3s;">
+                <img src="download.png" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 50%; transition: transform 0.3s;">
             </a>
-            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github">
-                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub">
+            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github" style="transition: transform 0.3s, background-color 0.3s;">
+                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%; transition: transform 0.3s;">
             </a>
         </div>
+        
+        <!-- Navigation Links -->
     </header>
-
-    <section class="intro">
-        <img src="myphoto.jpg" alt="Your Photo">
-        <h1>Unnatidhar Sharma</h1>
-        <p>
-            Hello! I'm a Machine Learning and Data Science Enthusiast
+    
+    
+    <section class="intro" style="text-align: center; padding: 60px 20px; background-color: #f0f4f8;">
+        <img src="myphoto.jpg" alt="Your Photo" 
+             style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; transition: transform 0.3s;">
+        <h1 style="font-size: 2.5em; font-weight: 700; color: #333; margin-bottom: 15px;">Unnatidhar Sharma</h1>
+        <p style="font-size: 1.2em; color: #777; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Hello! I'm a Machine Learning and Data Science Enthusiast<br>
             Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
         </p>
-        <div class="buttons">
-            <a href="First.html">Skills</a>
-            <a href="project.html">Projects</a>
-            <!-- Resume button -->
-            <a href="resume.html">Resume</a>
-            <a href="certificate.html">Certification</a>
+        <div class="buttons" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="#skills" 
+               style="background-color: #4CAF50; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+                Skills
+            </a>
+            <a href="#projects" 
+               style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+                Projects
+            </a>
+            <a href="#internships" 
+            style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+             Internships
+         </a>
+            <a href="#certificates" 
+               style="background-color: #FF5722; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+                Certification
+            </a>
+            <a href="#achievements" 
+            style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+             Achivements
+         </a>
+            <a href="#resume" 
+               style="background-color: #FFC107; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
+                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
+                Resume
+            </a>
         </div>
     </section>
+    
+    
 
+    <section id="skills" style="background-color: #f0f8ff; padding: 40px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Skills</h2>
+        <p style="font-size: 1.5em; color: #555; margin-bottom: 30px; animation: fadeIn 2s ease-out;"></p>
+        
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="skill-card" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease;">
+                <h3>Machine Learning</h3>
+            </div>
+            <div class="skill-card" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease;">
+                <h3>Data Science</h3>
+            </div>
+            <div class="skill-card" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2s ease;">
+                <h3>SQL</h3>
+            </div>
+            <div class="skill-card" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2.5s ease;">
+                <h3>Deep Learning</h3>
+            </div>
+            <div class="skill-card" style="background: linear-gradient(135deg, #ff66cc, #9900cc); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 3s ease;">
+                <h3>Python</h3>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        .skill-card:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <br>
+
+
+    <section id="projects" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Projects</h2>
+        <div id="projects-container" class="projects-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="project-card" onclick="window.location.href='https://github.com/RiH-137/Tenet.git'" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">DeepFake Detection</h3>
+            </div>
+            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/Projects.git'" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">WhatsApp Sentiment Analysis</h3>
+            </div>
+            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/First_movie_recommendater.git'" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Movie Recommendation System</h3>
+            </div>
+            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/Projects.git'" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Fruit and Food Detection</h3>
+            </div>
+        </div>
+    </section>
+    
+    <br>
+    <section id="internships" style="background: linear-gradient(135deg, #6e8efb, #a777e3); padding: 40px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: white; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Internships</h2>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="internship-card" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease;">
+                <h3>Machine Learning Internship</h3>
+                <p>Worked on developing machine learning models and data analysis techniques to build predictive systems.</p>
+            </div>
+            <div class="internship-card" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease;">
+                <h3>Data Science Internship</h3>
+                <p>Engaged in data processing, feature engineering, and model development for data science applications.</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    
+    <section id="certificates" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Certificates</h2>
+        <div id="certificate-container" class="certificate-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="certificate-card" onclick="openCertificate('Unnatidhar Sharma_certificate-2.pdf')" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Machine Learning Certificate</h3>
+            </div>
+            <div class="certificate-card" onclick="openCertificate('UNNATIDHAR SHARMAcertificate (2).pdf')" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Microsoft AI Certificate</h3>
+            </div>
+            <div class="certificate-card" onclick="openCertificate('Unnatidhar_Oct_2023_internship_41839 (1).pdf')" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Artificial Intelligence Languify Certificate</h3>
+            </div>
+            <div class="certificate-card" onclick="openCertificate('DeepLearning.pdf')" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin: 0; font-size: 1.2em; color: white;">Deep Learning Certificate</h3>
+            </div>
+        </div>
+    </section>
+    <br>
+
+
+    
+
+    <section id="achievements" style="background: linear-gradient(135deg, #6e8efb, #a777e3); padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: white; margin-bottom: 40px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Achievements</h2>
+        
+        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease-out;">
+                <h3 style="color: #333;">Project Selection in Hackathon</h3>
+                <p style="color: #555;">Deep Fake detection Project is Selected by My college for Hackathon</p>
+            </div>
+            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease-out;">
+                <h3 style="color: #333;">Selected By NTT DATA</h3>
+                <p style="color: #555;">For Full Stack Training And Internship</p>
+            </div>
+    
+            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2s ease-out;">
+                <h3 style="color: #333;">eLitmus Test 93.17 Percentile</h3>
+                <p style="color: #555;">Scored in the top 10% in the eLitmus exam, showcasing my analytical skills and problem-solving ability.</p>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    
+    <br>
+    
+    
+    <section id="resume" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Resume</h2>
+        <a href="YourResume.pdf" class="download-button" download style="display: inline-block; background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 15px 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: background 0.3s, transform 0.3s; text-decoration: none;">
+            Download My Resume
+        </a>
+    </section>
+    <br>
+
+    <footer style="background-color: #333; color: white; text-align: center; padding: 40px 20px; position: relative; bottom: 0; width: 100%;">
+        <div style="margin-bottom: 20px;">
+            <a href="https://www.linkedin.com/feed/" target="_blank" style="margin-right: 15px;">
+                <img src="download.png" alt="LinkedIn" style="width: 30px; height: 30px; transition: transform 0.3s;">
+            </a>
+            <a href="https://github.com/Unnatidharsharma" target="_blank" style="margin-right: 15px;">
+                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub" style="width: 30px; height: 30px; transition: transform 0.3s;">
+            </a>
+            <a href="mailto:unnatidhar.sharma@example.com" style="margin-right: 15px;">
+                <img src="images.png" alt="Email" style="width: 30px; height: 30px; transition: transform 0.3s;">
+            </a>
+        </div>
+        <p style="font-size: 1.2em;">Unnatidhar Sharma - Machine Learning & Data Science Enthusiast</p>
+        <p style="font-size: 1em; color: #bbb; margin-top: 10px;">&copy; 2025 All rights reserved</p>
+    </footer>
+    
 </body>
+
 </html>
 
 
