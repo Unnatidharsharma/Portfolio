@@ -2,356 +2,775 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unnatidhar Sharma | Java & ML Developer</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1e2167;
+      --secondary-color: rgb(170, 187, 228);
+      --dark-bg: rgb(0, 0, 33);
+      --nav-bg: rgb(18, 18, 62);
+      --text-light: #ccc;
+      --accent-color: #9c97f1;
+    }
 
-        header {
-            background-color: #0b2b36;
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
+    body {
+      background-color: var(--dark-bg);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
 
-        header .buttons a {
-            text-decoration: none;
-            color: white;
-            margin: 0 10px;
-            font-size: 1.1em;
-        }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      background-color: var(--nav-bg);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        section {
-            padding: 80px 20px;
-        }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
 
-        .projects-container,
-        .certificate-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+    nav ul li {
+      list-style: none;
+      margin: 0 23px;
+    }
 
-        .project-card,
-.certificate-card {
-    background: rgb(255, 255, 255);
-    border-radius: 30px;
-    padding: 30px; /* Adjusted padding to make it look better */
-    width: 280px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added background-color transition */
-    cursor: pointer;
-}
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-.project-card:hover,
-.certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    background-color: #f0f8ff; /* Light blue color on hover */
-}
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
 
-/* Optional: You can also change the color of the text on hover */
-.project-card h3,
-.certificate-card h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: #333;
-    transition: color 0.3s; /* Smooth color transition */
-}
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
 
-.project-card:hover h3,
-.certificate-card:hover h3 {
-    color: #007bff; /* Change text color to blue on hover */
-}
+    nav ul li a:hover::after {
+      width: 100%;
+    }
 
+    .left {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
 
-        .download-button {
-            text-decoration: none;
-            color: white;
-            background-color: #0b2b36;
-            padding: 12px 20px;
-            border-radius: 5px;
-            font-size: 1.1em;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
+    main {
+      margin-top: 80px;
+      padding: 20px;
+    }
 
-        .download-button:hover {
-            background-color: #333;
-        }
-    </style>
-    <script>
-        function showProjectDetails(title, description) {
-            alert(`${title}\n\n${description}`);
-        }
+    .section-divider {
+      border: 0;
+      background: var(--accent-color);
+      height: 1.2px;
+      margin: 60px auto;
+      width: 80%;
+      opacity: 0.5;
+    }
 
-        function openCertificate(file) {
-            window.open(file, '_blank');
-        }
-    </script>
+    .hero-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 140px 0;
+      min-height: 70vh;
+      gap: 50px;
+    }
+
+    .hero-content {
+      width: 50%;
+    }
+
+    .hero-image {
+      width: 40%;
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--secondary-color);
+      box-shadow: 0 0 30px rgba(170, 187, 228, 0.5);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .tech-illustration {
+      position: absolute;
+      width: 200px;
+      opacity: 0.7;
+      z-index: -1;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .tech-illustration.top-right {
+      top: -30px;
+      right: -30px;
+      animation-delay: 0.5s;
+    }
+
+    .tech-illustration.bottom-left {
+      bottom: -30px;
+      left: -30px;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: white;
+      border: 2px solid var(--secondary-color);
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: var(--secondary-color);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(170, 187, 228, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--secondary-color);
+    }
+
+    .btn-outline:hover {
+      background: var(--secondary-color);
+      color: var(--dark-bg);
+    }
+
+    .coding-profiles {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .coding-profile-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .coding-profile-link:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    .text-light {
+      color: var(--text-light);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 0;
+    }
+
+    .section-container {
+      max-width: 80vw;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .skill-card {
+      background: rgba(30, 33, 103, 0.5);
+      border-radius: 10px;
+      padding: 25px;
+      width: calc(50% - 15px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid var(--secondary-color);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .skill-description {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .profile-content {
+      background: rgba(30, 33, 103, 0.3);
+      padding: 30px;
+      border-radius: 10px;
+      line-height: 1.8;
+    }
+
+    .education-item, .internship-item, .project-item {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed rgba(170, 187, 228, 0.3);
+    }
+
+    .education-item:last-child, 
+    .internship-item:last-child, 
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+    }
+
+    .item-subtitle {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--text-light);
+    }
+
+    .item-details {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .interests-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .interest-item {
+      background: rgba(30, 33, 103, 0.3);
+      padding: 15px 25px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .interest-item:hover {
+      background: var(--secondary-color);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    .declaration {
+      font-style: italic;
+      text-align: center;
+      padding: 30px;
+      background: rgba(30, 33, 103, 0.3);
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #0e0e1a;
+      padding: 50px 0 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-section {
+      width: 250px;
+    }
+
+    .footer-section h3 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .social-link {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--text-light);
+      padding-top: 20px;
+      border-top: 1px solid rgba(170, 187, 228, 0.1);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+        margin: 100px 0 50px;
+      }
+
+      .hero-content, .hero-image {
+        width: 100%;
+      }
+
+      .profile-photo {
+        width: 280px;
+        height: 280px;
+      }
+
+      .tech-illustration {
+        width: 150px;
+      }
+
+      .coding-profiles {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .skill-card {
+        width: 100%;
+      }
+
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+      }
+
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+
+      .section-container {
+        max-width: 95vw;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000;">
-        <!-- Portfolio Title -->
-        <h1 style="font-size: 2.5em; font-weight: 700; margin: 0; letter-spacing: 2px; color: #f9f9f9; text-transform: uppercase; transition: color 0.3s;">
-            Welcome to My Portfolio
+  <header>
+    <nav>
+      <div class="left">Unnatidhar Sharma</div>
+      <div class="right">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Hi, I'm <span class="highlight">Unnatidhar Sharma</span>
         </h1>
-        
-        <!-- Social Links -->
-        <div class="social-links-header" style="display: flex; gap: 20px; align-items: center;">
-            <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="linkedin" style="transition: transform 0.3s, background-color 0.3s;">
-                <img src="download.png" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 50%; transition: transform 0.3s;">
-            </a>
-            <a href="https://github.com/Unnatidharsharma" target="_blank" title="GitHub" aria-label="GitHub" class="github" style="transition: transform 0.3s, background-color 0.3s;">
-                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%; transition: transform 0.3s;">
-            </a>
-        </div>
-        
-        <!-- Navigation Links -->
-    </header>
-    
-    
-    <section class="intro" style="text-align: center; padding: 60px 20px; background-color: #f0f4f8;">
-        <img src="myphoto.jpg" alt="Your Photo" 
-             style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; transition: transform 0.3s;">
-        <h1 style="font-size: 2.5em; font-weight: 700; color: #333; margin-bottom: 15px;">Unnatidhar Sharma</h1>
-        <p style="font-size: 1.2em; color: #777; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
-            Hello! I'm a Machine Learning and Data Science Enthusiast<br>
-            Passionate about solving real-world challenges with innovative solutions. Experienced in developing and deploying machine learning models, building impactful applications.
+        <h2 class="hero-subtitle">
+          A Passionate <span id="element"></span>
+        </h2>
+        <p class="text-light">
+          I build intelligent backend systems and machine learning solutions that solve real-world problems. 
+          Combining Java expertise with AI innovation to create impactful technology.
         </p>
-        <div class="buttons" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="#skills" 
-               style="background-color: #4CAF50; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-                Skills
-            </a>
-            <a href="#projects" 
-               style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-                Projects
-            </a>
-            <a href="#internships" 
-            style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-             Internships
-         </a>
-            <a href="#certificates" 
-               style="background-color: #FF5722; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-                Certification
-            </a>
-            <a href="#achievements" 
-            style="background-color: #2196F3; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-             Achivements
-         </a>
-            <a href="#resume" 
-               style="background-color: #FFC107; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; 
-                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s, transform 0.3s;">
-                Resume
-            </a>
+        <div class="buttons">
+          <button class="btn" onclick="window.open('R5_compressed.pdf', '_blank')">
+            <i class="fas fa-download"></i> Download CV
+          </button>
+          <button class="btn btn-outline" onclick="window.open('https://github.com/Unnatidharsharma', '_blank')">
+            <i class="fab fa-github"></i> View Projects
+          </button>
         </div>
-    </section>
-    
-    
-
-    <section id="skills" style="background-color: #f0f8ff; padding: 40px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Skills</h2>
-        <p style="font-size: 1.5em; color: #555; margin-bottom: 30px; animation: fadeIn 2s ease-out;"></p>
         
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="skill-card" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease;">
-                <h3>Machine Learning</h3>
-            </div>
-            <div class="skill-card" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease;">
-                <h3>Data Science</h3>
-            </div>
-            <div class="skill-card" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2s ease;">
-                <h3>SQL</h3>
-            </div>
-            <div class="skill-card" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2.5s ease;">
-                <h3>Deep Learning</h3>
-            </div>
-            <div class="skill-card" style="background: linear-gradient(135deg, #ff66cc, #9900cc); color: white; padding: 20px 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 3s ease;">
-                <h3>Python</h3>
-            </div>
+        <!-- Coding Profiles Section -->
+        <div class="coding-profiles">
+          <a href="https://leetcode.com/u/Unnatidhar/" class="coding-profile-link" target="_blank">
+            <i class="fas fa-code"></i> LeetCode Profile
+          </a>
+          <a href="https://www.linkedin.com/in/unnatidhar-sharma-1434a8263/" class="coding-profile-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+          </a>
         </div>
-    </section>
-    
-    <style>
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-    
-        @keyframes slideIn {
-            0% {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    
-        .skill-card:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-    </style>
-
-    <br>
-
-
-    <section id="projects" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Projects</h2>
-        <div id="projects-container" class="projects-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="project-card" onclick="window.location.href='https://github.com/RiH-137/Tenet.git'" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">DeepFake Detection</h3>
-            </div>
-            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/Projects.git'" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">WhatsApp Sentiment Analysis</h3>
-            </div>
-            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/First_movie_recommendater.git'" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Movie Recommendation System</h3>
-            </div>
-            <div class="project-card" onclick="window.location.href='https://github.com/Unnatidharsharma/Projects.git'" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Fruit and Food Detection</h3>
-            </div>
-        </div>
-    </section>
-    
-    <br>
-    <section id="internships" style="background: linear-gradient(135deg, #6e8efb, #a777e3); padding: 40px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: white; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Internships</h2>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="internship-card" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease;">
-                <h3>Machine Learning Internship</h3>
-                <p>Worked on developing machine learning models and data analysis techniques to build predictive systems.</p>
-            </div>
-            <div class="internship-card" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease;">
-                <h3>Data Science Internship</h3>
-                <p>Engaged in data processing, feature engineering, and model development for data science applications.</p>
-            </div>
-        </div>
-    </section>
-    <br>
-    
-    <section id="certificates" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Certificates</h2>
-        <div id="certificate-container" class="certificate-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="certificate-card" onclick="openCertificate('Unnatidhar Sharma_certificate-2.pdf')" style="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Machine Learning Certificate</h3>
-            </div>
-            <div class="certificate-card" onclick="openCertificate('UNNATIDHAR SHARMAcertificate (2).pdf')" style="background: linear-gradient(135deg, #67b26f, #4ca2cd); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Microsoft AI Certificate</h3>
-            </div>
-            <div class="certificate-card" onclick="openCertificate('Unnatidhar_Oct_2023_internship_41839 (1).pdf')" style="background: linear-gradient(135deg, #f6d02f, #f5a623); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Artificial Intelligence Languify Certificate</h3>
-            </div>
-            <div class="certificate-card" onclick="openCertificate('DeepLearning.pdf')" style="background: linear-gradient(135deg, #ff7f50, #ff6347); color: white; padding: 30px 20px; height: 220px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; display: flex; justify-content: center; align-items: center; text-align: center;">
-                <h3 style="margin: 0; font-size: 1.2em; color: white;">Deep Learning Certificate</h3>
-            </div>
-        </div>
-    </section>
-    <br>
-
-
-    
-
-    <section id="achievements" style="background: linear-gradient(135deg, #6e8efb, #a777e3); padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: white; margin-bottom: 40px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Achievements</h2>
+      </div>
+      <div class="hero-image">
+        <!-- Replace with your actual photo -->
+        <img src="ProfilePhoto.jpg" 
+             alt="Unnatidhar Sharma" class="profile-photo">
         
-        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1s ease-out;">
-                <h3 style="color: #333;">Project Selection in Hackathon</h3>
-                <p style="color: #555;">Deep Fake detection Project is Selected by My college for Hackathon</p>
-            </div>
-            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 1.5s ease-out;">
-                <h3 style="color: #333;">Selected By NTT DATA</h3>
-                <p style="color: #555;">For Full Stack Training And Internship</p>
-            </div>
-    
-            <div class="achievement-card" style="background: #ffffff; padding: 30px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 280px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: slideIn 2s ease-out;">
-                <h3 style="color: #333;">eLitmus Test 93.17 Percentile</h3>
-                <p style="color: #555;">Scored in the top 10% in the eLitmus exam, showcasing my analytical skills and problem-solving ability.</p>
-            </div>
-        </div>
+        <!-- AI/ML themed decorative elements -->
+        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" 
+             alt="AI icon" class="tech-illustration top-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" 
+             alt="Java icon" class="tech-illustration bottom-left">
+      </div>
     </section>
-    
-    <style>
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    
-        @keyframes slideIn {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-    </style>
-    
-    <br>
-    
-    
-    <section id="resume" style="background-color: #f0f8ff; padding: 80px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h2 style="font-size: 2.5em; color: #333; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; animation: fadeIn 1s ease-out;">Resume</h2>
-        <a href="Unnatidhar_Sharma_Resume (2).pdf" class="download-button" download style="display: inline-block; background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 15px 40px; border-radius: 8px; font-size: 1.2em; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: background 0.3s, transform 0.3s; text-decoration: none;">
-            Download My Resume
-        </a>
-    </section>
-    <br>
 
-    <footer style="background-color: #333; color: white; text-align: center; padding: 40px 20px; position: relative; bottom: 0; width: 100%;">
-        <div style="margin-bottom: 20px;">
-            <a href="https://www.linkedin.com/feed/" target="_blank" style="margin-right: 15px;">
-                <img src="download.png" alt="LinkedIn" style="width: 30px; height: 30px; transition: transform 0.3s;">
-            </a>
-            <a href="https://github.com/Unnatidharsharma" target="_blank" style="margin-right: 15px;">
-                <img src="png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub" style="width: 30px; height: 30px; transition: transform 0.3s;">
-            </a>
-            <a href="mailto:unnatidhar.sharma@example.com" style="margin-right: 15px;">
-                <img src="images.png" alt="Email" style="width: 30px; height: 30px; transition: transform 0.3s;">
-            </a>
+    <hr class="section-divider" />
+
+    <section class="section-container" id="skills">
+      <span class="text-light">My Technical Expertise</span>
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3 class="skill-title">Object-Oriented Programming</h3>
+          <p class="skill-description">
+            Strong understanding of OOP principles including inheritance, encapsulation, polymorphism, and abstraction. 
+            Applied these concepts in Java to develop modular, maintainable, and scalable applications with clean architecture.
+          </p>
         </div>
-        <p style="font-size: 1.2em;">Unnatidhar Sharma - Machine Learning & Data Science Enthusiast</p>
-        <p style="font-size: 1em; color: #bbb; margin-top: 10px;">&copy; 2025 All rights reserved</p>
-    </footer>
-    
+
+        <div class="skill-card">
+          <h3 class="skill-title">Spring Boot & Hibernate</h3>
+          <p class="skill-description">
+            Developed robust RESTful APIs and microservices using Spring Boot with Hibernate/JPA. Implemented security 
+            (JWT, OAuth2), database migrations, caching, and integrated with frontend frameworks for full-stack solutions.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-title">Java 8+ Features</h3>
+          <p class="skill-description">
+            Proficient in modern Java features including Lambda expressions, Stream API, Functional Interfaces, 
+            Optional class, and new Date/Time API. Leveraged these to write concise, efficient, and readable code.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-title">Machine Learning</h3>
+          <p class="skill-description">
+            Implemented supervised and unsupervised learning models for classification, regression, and clustering tasks. 
+            Experienced with Scikit-learn, TensorFlow, and Keras for model development, evaluation, and deployment.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-title">Natural Language Processing</h3>
+          <p class="skill-description">
+            Built NLP systems for text processing, sentiment analysis, and chatbot development. Worked with NLTK, spaCy, 
+            and transformer models for tasks like named entity recognition, text classification, and language generation.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-title">Database Systems</h3>
+          <p class="skill-description">
+            Designed and optimized relational (MySQL, PostgreSQL) and NoSQL (MongoDB) databases. Created efficient 
+            schemas, wrote complex queries, and implemented ORM solutions for data persistence in enterprise applications.
+          </p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div id="profile">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="profile-content">
+          <p>
+            I am a dedicated Backend Developer and Machine Learning enthusiast with a strong foundation in building 
+            scalable systems using Spring Boot and creating intelligent solutions through data science. My approach 
+            combines technical expertise with problem-solving skills to deliver efficient, reliable applications.
+          </p>
+          <p>
+            With experience in full-stack development and AI implementations, I bridge the gap between complex algorithms 
+            and user-friendly applications. I'm passionate about continuous learning and applying cutting-edge technologies 
+            to solve real-world challenges.
+          </p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <h3 class="item-title">Bachelor of Technology in Computer Science (AI)</h3>
+          <h4 class="item-subtitle">Noida Institute of Engineering and Technology | 2022 - 2026</h4>
+          <p class="item-details">
+            Specialized in Artificial Intelligence with coursework in machine learning, deep learning, 
+            natural language processing, and data structures & algorithms.
+          </p>
+        </div>
+
+        <div class="education-item">
+          <h3 class="item-title">Higher Secondary Education (12th Grade)</h3>
+          <h4 class="item-subtitle">Chandrabadan High School (BSEB) | 2022 | 79%</h4>
+          <p class="item-details">
+            Focused on science stream with mathematics, physics, and chemistry as core subjects.
+          </p>
+        </div>
+
+        <div class="education-item">
+          <h3 class="item-title">Secondary Education (10th Grade)</h3>
+          <h4 class="item-subtitle">Chandrabadan High School (BSEB) | 2020 | 78%</h4>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div>
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="internship-item">
+          <h3 class="item-title">Machine Learning Engineer Intern</h3>
+          <h4 class="item-subtitle">Jurniq Career Guidance Pvt. Ltd | May 2025 - July 2025</h4>
+          <p class="item-details">
+            • Developed a personalized career path recommendation system using collaborative filtering and content-based algorithms<br>
+            • Implemented NLP techniques for resume parsing and skill extraction<br>
+            • Contributed to backend development using Node.js and database optimization<br>
+            • Collaborated with frontend team to integrate ML models with React-based UI
+          </p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div>
+        <h2 class="section-title">Key Projects</h2>
+        <div class="project-item">
+          <h3 class="item-title">AI Chat Messenger Application</h3>
+          <p class="item-details">
+            Real-time chat application featuring WebSocket communication, user authentication, and message persistence. 
+            Backend built with Spring Boot (REST APIs, JWT security) and frontend with Angular. Integrated sentiment 
+            analysis for message moderation.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <h3 class="item-title">Service Booking System</h3>
+          <p class="item-details">
+            Full-stack booking management system with role-based access (admin, provider, customer). Implemented features 
+            including appointment scheduling, notifications, and payment integration. Tech stack: Spring Boot, Angular, MySQL.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <h3 class="item-title">Movie Recommendation System</h3>
+          <p class="item-details">
+            Hybrid recommendation engine combining collaborative filtering and content-based approaches. Incorporated NLP 
+            for movie description analysis and user preference modeling. Deployed as a Flask web service with React frontend.
+          </p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div>
+        <h2 class="section-title">Interests</h2>
+        <div class="interests-list">
+          <div class="interest-item">Space Science & Astronomy</div>
+          <div class="interest-item">Cricket</div>
+          <div class="interest-item">Open Source Contribution</div>
+          <div class="interest-item">Technical Writing</div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="declaration">
+        <p>
+          I hereby declare that all the information provided in this portfolio is accurate and true to the best of my knowledge. 
+          I understand that any misrepresentation may result in termination of any opportunities gained through this document.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Unnatidhar Sharma</h3>
+        <p class="text-light">Backend Developer & ML Enthusiast</p>
+        <p class="text-light">Building intelligent solutions with Java and Python</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Connect With Me</h3>
+        <div class="social-links">
+          <a href="https://leetcode.com/u/Unnatidhar/" class="social-link" target="_blank" title="LeetCode">
+            <i class="fas fa-code"></i>
+          </a>
+          <a href="https://github.com/Unnatidharsharma" class="social-link" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/unnatidhar-sharma-1434a8263/" class="social-link" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:your-email@example.com" class="social-link" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; <span id="year"></span> Unnatidhar Sharma. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    // Typed.js initialization
+    var typed = new Typed('#element', {
+      strings: ['Backend Developer', 'Java Specialist', 'ML Engineer', 'Problem Solver'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|',
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
-
 
