@@ -13,8 +13,7 @@ Welcome to my **personal portfolio website** built using **HTML**, **CSS**, and 
 
 ## 🖼️ Preview
 
-![Portfolio Preview](assets/images/screenshot.png)  
-*(Add a screenshot from your website here)*
+![Portfolio Preview](Portfolio_front.png)  
 
 ---
 
