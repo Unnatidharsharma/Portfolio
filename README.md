@@ -7,7 +7,6 @@ Welcome to my **personal portfolio website** built using **HTML**, **CSS**, and 
 ## 🔗 Live Demo
 
 ➡️ [Click here to view the live site](https://unnatidharsharma.github.io/Portfolio/)  
-*(Replace with your actual URL or GitHub Pages link)*
 
 ---
 
@@ -64,7 +63,7 @@ To run this website locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/Unnatidharsharma/Portfolio.git
 
 # Navigate to the folder
 cd portfolio
@@ -74,42 +73,7 @@ Open index.html with any browser
 
 
 ```
-🧩 Customization Guide
-You can personalize the website by editing the following:
 
-📝 Content
-Edit index.html:
-
-Replace name, bio, project details
-
-Update links to GitHub, LinkedIn, Resume, etc.
-
-🎨 Design
-Edit style.css:
-
-Change colors, fonts, or layout
-
-Add dark mode or custom animations
-
-⚙️ Interactivity
-Edit script.js:
-
-Add smooth scrolling
-
-Scroll animations
-
-Theme toggles or form validation
-
-🧠 Future Improvements
- Dark/Light Theme Toggle
-
- Dynamic Project Filtering by Tags
-
- Blog Section Integration
-
- Firebase/Formspree Contact Form Integration
-
- CMS Integration for Easy Content Update
 
 📬 Contact Me
 Want to collaborate or connect?
